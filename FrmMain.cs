@@ -25,6 +25,12 @@ namespace Sclad_system
         private void FrmMain_Load(object sender, EventArgs e)
         {
             _obj = this;
+            btnMax.PerformClick();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -29,7 +29,9 @@ namespace Sclad_system
 
         private void btnlogin_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            FrmMain frm= new FrmMain();
+            frm.Show();
         }
     }
 }

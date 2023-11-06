@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Globalization;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Sclad_system
@@ -14,9 +13,13 @@ namespace Sclad_system
         [STAThread]
         static void Main()
         {
+            // Set the thread culture to Russian
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("ru-RU");
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("ru-RU");
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Samples());
+            Application.Run(new Frmlogin());
         }
     }
 }
