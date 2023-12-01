@@ -1,6 +1,6 @@
 ﻿namespace Sclad_system
 {
-    partial class Samples
+    partial class Sample
     {
         /// <summary>
         /// Required designer variable.

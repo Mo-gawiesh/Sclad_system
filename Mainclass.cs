@@ -10,6 +10,7 @@ using System.Drawing;
 using System.Collections;
 using System.Reflection;
 using Microsoft.VisualBasic.ApplicationServices;
+using System.IO;
 
 namespace Sclad_system
 {
@@ -35,9 +36,11 @@ namespace Sclad_system
             {
                 isValid = true;
                 user = dt.Rows[0]["uName"].ToString();
+
+                Byte[] imageArray = (byte[])dt.Rows[0]["uImage"];
+                byte[] imagebyteArry = imageArray;
+                IMG = Image.FromStream(new MemoryStream(imageArray));
             }
-
-
             return isValid;
         }
 
@@ -165,9 +168,20 @@ namespace Sclad_system
             }
         
         }
-        
+
         // for cb fill
 
-       
+        public static void CBFill(string qry, ComboBox cb)
+        {
+            SqlCommand cmd = new SqlCommand(qry, con);
+            cmd.CommandType = CommandType.Text;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            cb.DisplayMember = "name";
+            cb.ValueMember = "id";
+            cb.DataSource = dt;
+            cb.SelectedIndex = -1;
+        }
     }
 }
